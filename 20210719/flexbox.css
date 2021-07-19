@@ -1,0 +1,74 @@
+.father {
+ display: flex; 
+ /* flex-direction: column; */
+ justify-content: space-around;
+ flex-wrap: nowrap;
+ height: 100vh;
+
+}
+
+ .child {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 300px;
+
+    background: #D2D2FF;
+    color: white;
+    font-size: 90px;
+}
+
+ /* 
+    father이 child를 옮기는 방법
+
+    display: flex 의 기본값은 가로(= flex-direction: row;), 
+    기본값 일 때 main axis 방향은 가로 / cross axis는 세로
+             
+    justify-content : main axis 이동작업시 사용, flex children의 위치 변경
+    align-items : cross axis 이동작업시 사용, flex children의 위치 변경
+    align-content : cross axis 줄 간격 변경
+
+    flexbox는 해당되는 박스들을 같은 줄에 놓는 것을 최우선시 하기 때문에 width가 무시되기도 함 
+    (기본값= flex-wrap: nowrap;)
+    child의 크기를 유지하고 싶은 경우 기본값에서 flex-wrap: wrap; 으로 변경해야 함
+
+    flex-direction: 방향-reverse; html을 변경하지 않고 해당 방향으로 chlid들의 순서를 뒤집음
+    flex-wrap: wrap-reverse; 도 가능
+
+    flex-direction + flex-wrap = flex-flow: row wrap;
+   
+ */
+
+/* 
+.child:nth-child(1) {
+    order: 3;
+}
+.child:nth-child(2) {
+    order: 3;
+}
+.child:nth-child(3) {
+    order: 1;
+}
+    chlid가 자체적으로 옮겨가는 방법
+
+    align-self : 하나의 flex children의 cross axis 위치 변경
+    order : html을 수정하지 않고 child들의 순서 변경
+*/
+
+.child:nth-child(2) {
+    background: #AADBFF;
+    flex-grow: 1;
+}
+
+/* 
+    flex-shrink: 2; (숫자로 조절, 2 기재시 다른 chlid보다 2배 더 줄어들게 함)
+    브라우저의 사이즈가 작아질 때 특정 chlid의 크기를 더 줄어들게 할 수 있음  
+
+    반대의 경우 flex-grow: 2; 사용
+
+    브라우저의 사이즈가 제각각이기 때문에 pixel로 지정되어있는 width보다 위의 두가지를 활용하자
+
+    flex-basis: 300px; main axis의 초기 크기를 설정
+    flex-shrink, flex-grow 등에 의해 변경 될 수 있기 때문에 실제 사이즈는 아님
+*/
